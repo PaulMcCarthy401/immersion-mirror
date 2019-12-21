@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ImmersionMirror": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
