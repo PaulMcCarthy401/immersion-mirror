@@ -20,11 +20,11 @@ namespace ImmersionMirror
             Console.WriteLine($"Input directory: {Path.GetFullPath(inDir)}");
             Console.WriteLine($"Output directory: {Path.GetFullPath(outDir)}");
 
-            Task.Run(async () => await Watch(inDir));
+            var watchTask = Task.Run(async () => await Watch(inDir));
 
             Console.WriteLine($"Listening for file changes in {inDir}");
 
-            Console.Read();
+            watchTask.Wait();
         }
 
         private static async Task Watch(string inDir)
