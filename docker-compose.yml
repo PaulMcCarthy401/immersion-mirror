@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  immersionmirror:
+    image: ${DOCKER_REGISTRY-}immersionmirror
+    restart: always
+    build:
+      context: .
+      dockerfile: ImmersionMirror/Dockerfile
+    volumes:
+      - /volume1/Media/Immersion/Staging:/app/InDir
+      - /volume1/Media/Immersion/Audio:/app/OutDir

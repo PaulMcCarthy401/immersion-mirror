@@ -20,18 +20,17 @@ namespace ImmersionMirror
             Console.WriteLine($"Input directory: {Path.GetFullPath(inDir)}");
             Console.WriteLine($"Output directory: {Path.GetFullPath(outDir)}");
 
-            Watch(inDir);
+            Task.Run(async () => await Watch(inDir));
 
             Console.WriteLine($"Listening for file changes in {inDir}");
 
             Console.Read();
         }
 
-        private static void Watch(string inDir)
+        private static async Task Watch(string inDir)
         {
             while (true)
             {
-
                 if (!IsDirectoryEmpty(inDir))
                 {
                     var files = Directory.GetFiles(inDir, "*", SearchOption.AllDirectories);
@@ -42,6 +41,8 @@ namespace ImmersionMirror
                         OnFileChanged(file);
                     }
                 }
+
+                await Task.Delay(5000);
             }
         }
 
