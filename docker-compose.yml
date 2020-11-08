@@ -8,5 +8,5 @@ services:
       context: .
       dockerfile: ImmersionMirror/Dockerfile
     volumes:
-      - /volume1/Media/Immersion/Staging:/app/InDir
-      - /volume1/Media/Immersion/Audio:/app/OutDir
+      - ./VideoInput:/app/InDir
+      - ./AudioOutput:/app/OutDir
